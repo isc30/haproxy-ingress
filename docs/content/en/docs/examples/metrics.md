@@ -67,7 +67,7 @@ controller:
   serviceMonitor:
     enabled: true
     labels:
-      release: prometheus
+      release: kube-prometheus-stack # make sure the release matches serviceMonitorSelector from your prometheus installation
     metrics:
       relabelings:
       - replacement: cl1
@@ -95,7 +95,7 @@ helm upgrade haproxy-ingress haproxy-ingress/haproxy-ingress\
   -f haproxy-ingress-values.yaml
 ```
 
-## Compatibility
+## Optional: Compatibility
 
 This dashboard works with HAProxy's internal Prometheus exporter. Follow these steps to adjust the scrape config and the dashboard if using [Prometheus' HAProxy Exporter](https://github.com/prometheus/haproxy_exporter):
 
